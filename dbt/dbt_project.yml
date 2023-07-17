@@ -1,0 +1,26 @@
+name: 'airflow_airbyte_dbt_demo'
+version: '1.0.0'
+config-version: 2
+
+profile: dev
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+
+models:
+  airflow_airbyte_dbt_demo:
+    transform:
+        schema: transform
+        materialized: view
+    analysis:
+        schema: analysis
+        materialized: view
